@@ -1,0 +1,15 @@
+<div>
+  <div>
+    name:{{name}}
+  </div>
+  <div>
+    age:{{age}}
+  </div>
+</div>
+
+<div *ngIf="log.length">记录</div>
+<div>
+  <ul>
+    <li *ngFor="let item of log">{{item}}</li>
+  </ul>
+</div>

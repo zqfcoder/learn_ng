@@ -1,0 +1,38 @@
+<div>
+
+  <!--
+      表单处理方式
+        响应式表单  yes
+        模板驱动表单
+
+        todo(两种区别???)
+        todo(两种表单的数据流???)
+  -->
+  <!--
+      共同特性
+
+      FormControl 实例用于追踪单个表单控件的值和验证状态。
+
+      FormGroup 用于追踪一个表单控件组的值和状态。
+
+      FormArray 用于追踪表单控件数组的值和状态。
+
+      ControlValueAccessor 用于在 Angular 的 FormControl 实例和原生 DOM 元素之间创建
+  -->
+
+  <!--
+      响应式
+  -->
+
+  <input type="text" [formControl]="colorControl" (keydown)="rLogKeyDown($event)">
+
+
+
+  <!--<input type="text" [(ngModel)]="color" (keydown)="logKeyDown($event)"/>-->
+
+
+  <div>{{color}}</div>
+</div>
+
+
+<!--陶晓刚-->

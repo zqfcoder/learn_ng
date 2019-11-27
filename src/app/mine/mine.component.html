@@ -1,0 +1,174 @@
+<!--组件playgroud-->
+
+<div>
+  1-1::{{getValue()+100}}
+  <div [title]="title">
+    <b></b>
+  </div>
+</div>
+
+<div>
+  <!--
+  todo(模板变量)
+  模板引用变量通常用来引用模板中的某个 DOM 元素，它还可以引用 Angular 组件或指令或Web Component。
+  -->
+  <!--todo(模板变量纯在的意义??? 为什么不使用双向把绑定)-->
+  <input #phone type="text">
+
+  <button (click)="getPhone(phone.value)">get</button>
+  <button (click)="logEvent($event)">logEvent</button>
+</div>
+
+<!--输出 output-->
+<div>
+  <button (click)="tell.emit('lalal')">output</button>
+  <!--<button (click)="emit('aaa')">output</button>-->
+</div>
+
+
+<!--表达式操作符-->
+<!--|-->
+<!--?. 方式属性为空 或者undefined-->
+<!--！非空-->
+<!--$any()方法  {{$any(this)}} 转换成任意函数 -->
+<div>
+  {{obj|json}}
+  <br>
+  <b>{{obj.age}}</b>
+  <b>{{obj?.age}}</b>
+  <br>
+  <!--<b *ngIf="obj">hha{{obj!.tall}}</b>-->
+  <b *ngIf="obj">hha{{obj.c}}</b>
+  <b *ngIf="obj">hha{{obj!.age}}</b>
+</div>
+
+
+<!--用户输入-->
+<!--文档说 传入$event 是不靠谱的 使用模板变量才是正确的事情-->
+<div>
+  <input
+    #box
+    type="text"
+    (keyup)="logKey(box.value)"
+    (keyup.enter)="logKeyEnter()"
+    (blur)="logBlur(box.value);box.value=''"
+  >
+</div>
+
+
+<!--todo(生命周期函数)  见ts-->
+<!--
+  ngOninit
+  在构造函数之后马上执行复杂的初始化逻辑
+  Angular 设置完输入属性之后，对该组件进行准备。
+
+  ngOnDestroy
+  一些清理逻辑必须在 Angular 销毁指令之前运行，把它们放在 ngOnDestroy() 中
+
+
+  ngOnChanges
+  一旦检测到该组件(或指令)的输入属性发生了变化，Angular 就会调用它的 ngOnChanges() 方法
+  可监听输入属性的生命周期  有点类似vue的watch
+
+  DoCheck ...
+
+init destroy change content view
+
+ngOninit ngOnDestroy
+-->
+<!--
+  指令也有生命周期钩子函数???
+-->
+
+<!--
+使用 DoCheck 钩子来检测那些 Angular 自身无法捕获的变更并采取行动。
+-->
+
+<!--todo(组件交互) 重要 见ts-->
+<!--
+1、@input
+2、监听输入属性的变化
+3、通过ngOnChanges监听 输入属性的变化 见parent child 组件
+4、通过父组件监听子组件  就是输出 @Output emit
+5、父子组件本地变量互动  #timer 这个不是模板变量吗?  见clockp clockc 组件  clockp 夫组  clockc 子组件
+6、父组件调用@ViewChild  使用组件 注入 见 组件 rnump 与 rnumc
+7、todo()父子组件通过服务来通信   未理解!!!
+-->
+<div>
+  输入的:{{name}}
+</div>
+
+
+<!--todo(组件样式) 见mine.component.scss  mine.component.ts -->
+
+
+<!--todo(自定义元素?)-->
+
+
+<!--todo(动态组件!!!??? 好难理解... 加强理解)-->
+
+
+<!--
+指令
+  结构型指令
+  属性型指令
+-->
+
+
+<!--
+
+属性型指令
+
+  指令写法
+
+  指令监听dom事件 @HostListener
+
+  指令传参 @Input
+
+
+结构性指令 todo(深入原理待查看 '所谓的内幕')
+
+  *ng 开头的吗
+
+  区别???
+
+  写法
+
+  常用
+
+    ngIf ngFor ngSwitch?s
+
+    @Input() set appUnless(condition: boolean) {????
+
+    appUnless ???
+
+-->
+
+<!--
+
+  管道
+
+  内置   DatePipe、UpperCasePipe、LowerCasePipe、CurrencyPipe 和 PercentPipe
+
+  用法:
+   1、{{ birthday | date:format }}  data:format //format 为管道参数
+   2、{{  birthday | date:'fullDate' | uppercase}} 可链式调用
+   3、自定义管道!!! hehe.pipe.ts
+
+  管道和使用 ngModel 的双向数据绑定组合起来 -> 管道参数可动态改变
+
+  管道与变更检测
+    1、性能的问题
+    2、结论: 纯管道 数组的push 不能引起视图的更新
+
+  非纯的定义
+    @Pipe({
+      name: 'flyingHeroesImpure',
+      pure: false
+    })
+
+  纯管道与非纯管道的区别???
+
+  FilterPipe 或者 OrderByPipe???
+-->
+

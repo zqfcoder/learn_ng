@@ -1,0 +1,7 @@
+<div>
+  <!--通过本地变量来互动...-->
+  <div>{{instance.second}}</div>
+  <button (click)="instance.stop()">stop</button>
+  <button (click)="instance.start()">start</button>
+  <app-clockc #instance></app-clockc>
+</div>

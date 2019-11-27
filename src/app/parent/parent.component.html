@@ -1,0 +1,17 @@
+<div>
+  设置子的年龄与名字 <br>
+
+  <!--模板变量 版-->
+  <!--<input #age value="18" type="number" placeholder="age">-->
+  <!--<input #name value="bz" type="text" placeholder="name">-->
+  <!--<app-child [age]="age.value" [name]="name.value"></app-child>-->
+
+  <!---->
+  <div>
+    <input class="input" [(ngModel)]="age" type="number" placeholder="age"/>
+    <input class="input" [(ngModel)]="name" type="text" placeholder="name"/>
+  </div>
+
+  <app-child [age]="age" [name]="name"></app-child>
+
+</div>
